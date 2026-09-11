@@ -16,230 +16,276 @@ export default function ProjectCard({
   layout = "default",
 }: ProjectCardProps) {
   return (
-    <article
-      aria-label={`Project: ${project.title}`}
-      style={{
-        border: "2px solid #111",
-        borderRadius: 10,
-        overflow: "hidden",
-        backgroundColor: "#F5F5F2",
-        display: layout === "horizontal" ? "grid" : "flex",
-        flexDirection: layout === "horizontal" ? undefined : "column",
-        gridTemplateColumns: layout === "horizontal" ? "1.2fr 1fr" : undefined,
-        transition: "transform 0.2s ease, box-shadow 0.2s ease",
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = "translate(-3px, -3px)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "6px 6px 0 #111";
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = "translate(0, 0)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "none";
-      }}
-    >
-      {/* Image area */}
-      <div
+    <>
+      <article
+        aria-label={`Project: ${project.title}`}
+        className="project-card"
+        data-layout={layout}
+        data-featured={featured ? "true" : "false"}
         style={{
-          backgroundColor: "#0d0d0d",
-          position: "relative",
+          border: "2px solid #111",
+          borderRadius: 10,
           overflow: "hidden",
-          height: featured ? 360 : layout === "horizontal" ? "100%" : 220,
-          minHeight: layout === "horizontal" ? 280 : undefined,
-          borderBottom: layout === "horizontal" ? "none" : "2px solid #111",
-          borderRight: layout === "horizontal" ? "2px solid #111" : "none",
+          backgroundColor: "#F5F5F2",
+          display: layout === "horizontal" ? "grid" : "flex",
+          flexDirection: layout === "horizontal" ? undefined : "column",
+          gridTemplateColumns: layout === "horizontal" ? "1.2fr 1fr" : undefined,
+          transition: "transform 0.2s ease, box-shadow 0.2s ease",
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLElement).style.transform = "translate(-3px, -3px)";
+          (e.currentTarget as HTMLElement).style.boxShadow = "6px 6px 0 #111";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLElement).style.transform = "translate(0, 0)";
+          (e.currentTarget as HTMLElement).style.boxShadow = "none";
         }}
       >
-        {/* Simulated project UI placeholder */}
-        <ProjectUIPlaceholder projectNumber={project.number} featured={featured} />
-
-        {/* Category badge */}
+        {/* Image area */}
         <div
+          className="project-image-area"
           style={{
-            position: "absolute",
-            top: 12,
-            left: 12,
-            backgroundColor: "#F5F5F2",
-            border: "1.5px solid #111",
-            borderRadius: 4,
-            padding: "4px 8px",
-            fontSize: 9,
-            fontFamily: "var(--font-space-grotesk)",
-            fontWeight: 700,
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            color: "#080808",
+            backgroundColor: "#0d0d0d",
+            position: "relative",
+            overflow: "hidden",
+            height: featured ? 360 : layout === "horizontal" ? "100%" : 220,
+            minHeight: layout === "horizontal" ? 280 : undefined,
+            borderBottom: layout === "horizontal" ? "none" : "2px solid #111",
+            borderRight: layout === "horizontal" ? "2px solid #111" : "none",
           }}
         >
-          {project.category}
-        </div>
+          {/* Simulated project UI placeholder */}
+          <ProjectUIPlaceholder projectNumber={project.number} featured={featured} />
 
-        {/* Year badge */}
-        <div
-          style={{
-            position: "absolute",
-            top: 12,
-            right: 12,
-            backgroundColor: "#080808",
-            borderRadius: 4,
-            padding: "4px 8px",
-            fontSize: 9,
-            fontFamily: "var(--font-space-grotesk)",
-            fontWeight: 700,
-            letterSpacing: "0.15em",
-            color: "#F5F5F2",
-          }}
-        >
-          {project.year}
-        </div>
-      </div>
-
-      {/* Content area */}
-      <div style={{ padding: featured ? "28px" : "20px", flex: 1 }}>
-        {/* Number + title */}
-        <div style={{ marginBottom: 12 }}>
-          <span
+          {/* Category badge */}
+          <div
             style={{
+              position: "absolute",
+              top: 12,
+              left: 12,
+              backgroundColor: "#F5F5F2",
+              border: "1.5px solid #111",
+              borderRadius: 4,
+              padding: "4px 8px",
+              fontSize: 9,
               fontFamily: "var(--font-space-grotesk)",
-              fontSize: 10,
               fontWeight: 700,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "#999",
-              display: "block",
-              marginBottom: 4,
-            }}
-          >
-            PROJECT {project.number}
-          </span>
-          <h3
-            style={{
-              fontFamily: "var(--font-anton)",
-              fontSize: featured ? 32 : 22,
-              letterSpacing: "0.02em",
+              letterSpacing: "0.15em",
               textTransform: "uppercase",
               color: "#080808",
-              lineHeight: 1.05,
             }}
           >
-            {project.title}
-          </h3>
+            {project.category}
+          </div>
+
+          {/* Year badge */}
+          <div
+            style={{
+              position: "absolute",
+              top: 12,
+              right: 12,
+              backgroundColor: "#080808",
+              borderRadius: 4,
+              padding: "4px 8px",
+              fontSize: 9,
+              fontFamily: "var(--font-space-grotesk)",
+              fontWeight: 700,
+              letterSpacing: "0.15em",
+              color: "#F5F5F2",
+            }}
+          >
+            {project.year}
+          </div>
         </div>
 
-        <div style={{ height: 1, backgroundColor: "#ddd", marginBottom: 14 }} />
-
-        {/* Description */}
-        <p
-          style={{
-            fontFamily: "var(--font-space-grotesk)",
-            fontSize: featured ? 15 : 13,
-            fontWeight: 400,
-            color: "#444",
-            lineHeight: 1.5,
-            marginBottom: 16,
-          }}
-        >
-          {project.description}
-        </p>
-
-        {/* Tech stack */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 6,
-            marginBottom: 20,
-          }}
-        >
-          {project.technologies.map((tech) => (
+        {/* Content area */}
+        <div className="project-content-area" style={{ padding: featured ? "28px" : "20px", flex: 1, display: "flex", flexDirection: "column" }}>
+          {/* Number + title */}
+          <div style={{ marginBottom: 12 }}>
             <span
-              key={tech}
               style={{
                 fontFamily: "var(--font-space-grotesk)",
-                fontSize: 9,
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "#999",
+                display: "block",
+                marginBottom: 4,
+              }}
+            >
+              PROJECT {project.number}
+            </span>
+            <h3
+              className="project-title"
+              style={{
+                fontFamily: "var(--font-anton)",
+                fontSize: featured ? 32 : 22,
+                letterSpacing: "0.02em",
+                textTransform: "uppercase",
+                color: "#080808",
+                lineHeight: 1.05,
+              }}
+            >
+              {project.title}
+            </h3>
+          </div>
+
+          <div style={{ height: 1, backgroundColor: "#ddd", marginBottom: 14 }} />
+
+          {/* Description */}
+          <p
+            className="project-description"
+            style={{
+              fontFamily: "var(--font-space-grotesk)",
+              fontSize: featured ? 15 : 13,
+              fontWeight: 400,
+              color: "#444",
+              lineHeight: 1.5,
+              marginBottom: 16,
+            }}
+          >
+            {project.description}
+          </p>
+
+          {/* Tech stack */}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 6,
+              marginBottom: 20,
+            }}
+          >
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                style={{
+                  fontFamily: "var(--font-space-grotesk)",
+                  fontSize: 9,
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "#080808",
+                  backgroundColor: "#E9E9E5",
+                  border: "1.5px solid #111",
+                  borderRadius: 4,
+                  padding: "3px 7px",
+                }}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Links */}
+          <div className="project-links" style={{ display: "flex", gap: 10, marginTop: "auto" }}>
+            <Link
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${project.title} live`}
+              className="project-link-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                fontFamily: "var(--font-space-grotesk)",
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                border: "2px solid #111",
+                borderRadius: 5,
+                padding: "7px 12px",
+                backgroundColor: "#080808",
+                color: "#F5F5F2",
+                transition: "all 0.15s ease",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = "#333";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = "#080808";
+              }}
+            >
+              VIEW PROJECT <span aria-hidden="true">→</span>
+            </Link>
+            <Link
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${project.title} source code on GitHub`}
+              className="project-link-btn outline"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                fontFamily: "var(--font-space-grotesk)",
+                fontSize: 10,
                 fontWeight: 700,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: "#080808",
-                backgroundColor: "#E9E9E5",
-                border: "1.5px solid #111",
-                borderRadius: 4,
-                padding: "3px 7px",
+                textDecoration: "none",
+                border: "2px solid #111",
+                borderRadius: 5,
+                padding: "7px 12px",
+                transition: "all 0.15s ease",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = "#080808";
+                (e.currentTarget as HTMLElement).style.color = "#F5F5F2";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+                (e.currentTarget as HTMLElement).style.color = "#080808";
               }}
             >
-              {tech}
-            </span>
-          ))}
+              <GitBranch size={12} />
+              CODE
+            </Link>
+          </div>
         </div>
+      </article>
 
-        {/* Links */}
-        <div style={{ display: "flex", gap: 10, marginTop: "auto" }}>
-          <Link
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`View ${project.title} live`}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              fontFamily: "var(--font-space-grotesk)",
-              fontSize: 10,
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              border: "2px solid #111",
-              borderRadius: 5,
-              padding: "7px 12px",
-              backgroundColor: "#080808",
-              color: "#F5F5F2",
-              transition: "all 0.15s ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "#333";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "#080808";
-            }}
-          >
-            VIEW PROJECT <span aria-hidden="true">→</span>
-          </Link>
-          <Link
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`View ${project.title} source code on GitHub`}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              fontFamily: "var(--font-space-grotesk)",
-              fontSize: 10,
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "#080808",
-              textDecoration: "none",
-              border: "2px solid #111",
-              borderRadius: 5,
-              padding: "7px 12px",
-              transition: "all 0.15s ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "#080808";
-              (e.currentTarget as HTMLElement).style.color = "#F5F5F2";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-              (e.currentTarget as HTMLElement).style.color = "#080808";
-            }}
-          >
-            <GitBranch size={12} />
-            CODE
-          </Link>
-        </div>
-      </div>
-    </article>
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .project-card[data-layout="horizontal"] {
+            display: flex !important;
+            flex-direction: column !important;
+          }
+          .project-card:not([data-featured="true"]) .project-image-area {
+            height: 180px !important;
+            min-height: auto !important;
+          }
+          .project-card[data-layout="horizontal"] .project-image-area {
+            border-right: none !important;
+            border-bottom: 2px solid #111 !important;
+          }
+          .project-card:not([data-featured="true"]) .project-content-area {
+            padding: 16px !important;
+          }
+          .project-card:not([data-featured="true"]) .project-title {
+            font-size: 20px !important;
+          }
+          .project-card:not([data-featured="true"]) .project-description {
+            font-size: 13px !important;
+          }
+          .project-links {
+            flex-wrap: wrap !important;
+            gap: 8px !important;
+          }
+          .project-link-btn {
+            flex: 1 1 calc(50% - 4px) !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding: 10px 12px !important;
+          }
+        }
+      `}</style>
+    </>
   );
 }
 
