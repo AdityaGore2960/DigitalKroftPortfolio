@@ -54,6 +54,7 @@ export default function Projects() {
         className="two-col-projects"
         style={{
           display: "grid",
+          gridTemplateColumns: "1fr 1fr",
           gap: 24,
           marginBottom: 24,
         }}
@@ -64,12 +65,9 @@ export default function Projects() {
       </motion.div>
 
       <style jsx>{`
-        .two-col-projects {
-          grid-template-columns: 1fr 1fr;
-        }
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .two-col-projects {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>
