@@ -5,9 +5,9 @@
 
 export const siteConfig = {
   // Personal Info
-  name: "Digital Kroft",
+  name: "DigitalKroft",
   initials: "DK",
-  role: "Software Development Company",
+  role: "DigitalKroft - Software Development Company",
   tagline: "WE BUILD\nSCALABLE DIGITAL\nPRODUCTS THAT\nMAKE AN IMPACT.",
   location: "India",
 

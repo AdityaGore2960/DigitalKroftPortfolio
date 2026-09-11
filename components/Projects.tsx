@@ -40,10 +40,10 @@ export default function Projects() {
         >
           OUR
           <br />
-          PROJECTS.
+          WORK
         </motion.h2>
 
-        <SectionLabel>OUR WORK / 2026</SectionLabel>
+        <SectionLabel>OUR WORK</SectionLabel>
       </div>
 
       {/* All Projects — Two column */}

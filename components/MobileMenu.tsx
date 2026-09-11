@@ -89,7 +89,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     letterSpacing: "0.05em",
                   }}
                 >
-                  AG
+                  DK
                 </span>
               </div>
               <button

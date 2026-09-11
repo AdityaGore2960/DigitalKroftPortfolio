@@ -147,10 +147,10 @@ export default function About() {
             }}
           >
             {[
-              { num: "4+", label: "Years Learning" },
+              { num: "4+", label: "Working Years" },
               { num: "10+", label: "Projects Built" },
               { num: "8+", label: "Technologies" },
-              { num: "∞", label: "Curiosity" },
+              { num: "10+", label: "Clients" },
             ].map((stat) => (
               <div
                 key={stat.label}

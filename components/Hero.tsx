@@ -35,7 +35,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="section-label"
         >
-          PORTFOLIO / 2026
+          PORTFOLIO
         </motion.span>
         <motion.span
           initial={{ opacity: 0 }}
