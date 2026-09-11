@@ -9,7 +9,7 @@ import MobileMenu from "./MobileMenu";
 
 const navLinks = [
   { label: "SERVICES", href: "#services", hasDropdown: true },
-  { label: "PROJECTS", href: "#projects", hasDropdown: false },
+  { label: "WORK", href: "#projects", hasDropdown: false },
   { label: "ABOUT US", href: "#about", hasDropdown: false },
 ];
 

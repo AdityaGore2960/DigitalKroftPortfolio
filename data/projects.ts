@@ -44,7 +44,7 @@ export const projects: Project[] = [
     image: "/projects/dashboard.jpg",
     github: "https://github.com/AdityaGore2960",
     live: "#",
-    category: "FRONTEND",
+    category: "ANDROID APP",
     year: "2026",
   },
   {
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     image: "/projects/business.jpg",
     github: "https://github.com/AdityaGore2960",
     live: "#",
-    category: "FULL STACK",
+    category: "AI MODEL",
     year: "2026",
   },
 ];
