@@ -10,14 +10,15 @@ import MobileMenu from "./MobileMenu";
 const navLinks = [
   { label: "SERVICES", href: "#services", hasDropdown: true },
   { label: "PROJECTS", href: "#projects", hasDropdown: false },
-  { label: "ABOUT ME", href: "#about", hasDropdown: false },
+  { label: "ABOUT US", href: "#about", hasDropdown: false },
 ];
 
 const serviceItems = [
   { label: "Web Development", href: "#services" },
   { label: "Full Stack Development", href: "#services" },
-  { label: "Backend Development", href: "#services" },
-];
+  { label: "Android App Development", href: "#services" },
+  { label: "UI/UX Design", href: "#services" },
+]
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
