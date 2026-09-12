@@ -312,6 +312,20 @@ body {
 }
 
 /* ============================================================
+   PROJECTS GRID — responsive two-column layout
+   Desktop: 2 columns  |  Tablet + Mobile (≤1024px): 1 column
+   ============================================================ */
+.two-col-projects {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 1024px) {
+  .two-col-projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
    FOCUS STATES — ACCESSIBILITY
    ============================================================ */
 :focus-visible {
